@@ -1,6 +1,6 @@
 import requests
 
-payload = { '$filter': 'Ar eq 2015'}
+payload = { '$filter': 'Ar eq 2018', '$top': '50'}
 
 headers = {'content-type': 'application/json'}
 
