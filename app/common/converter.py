@@ -4,7 +4,7 @@ def convert_to_geojson_info(obj):
     involved = convert_involvement(obj)
     geojson = {
         "locationType": locationType_dict[obj['Platstyp']],
-        "accidentType": accidentType_dict[obj['Olyckstyp']],
+        "accidentType": obj['Olyckstyp'],
         "region": obj['Lan'],
         "municipality": obj['Kommun'],
         "road": obj['Olycksvag'],
