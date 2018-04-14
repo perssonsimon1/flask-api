@@ -7,7 +7,7 @@ def convert(obj):
             "coordinates": [obj['Longitud'], obj['Latitud']]
         },
         "properties": {
-            "name": "Dinagat Islands",
+            "name": obj['Id'],
             "location_type": obj['Platstyp'],
             "accident_type": obj['Olyckstyp'],
             "intensity": obj['Svarighetsgrad'],
