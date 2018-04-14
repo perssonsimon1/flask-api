@@ -2,15 +2,21 @@ from app import app
 from app.tsn import accidents
 import json
 
-def sortedList(numElements, keyFunc, descending = True):
+def sortedList(numElements, keyFunc, descending = True, keyFuncReturnsList = False):
     itemDict = dict()
     result = accidents.get().json()['value']
     for item in result:
-        key = keyFunc(item)
-        if key in itemDict:
-            itemDict[key] += 1
+        keyRet = keyFunc(item)
+        if keyFuncReturnsList:
+            keys = keyRet
         else:
-            itemDict[key] = 1
+            keys = [keyRet]
+        
+        for key in keys:
+            if key in itemDict:
+                itemDict[key] += 1
+            else:
+                itemDict[key] = 1
     
     itemsInList = sorted(itemDict.items(), key = lambda it: it[1], reverse = descending)
     list_result = list()

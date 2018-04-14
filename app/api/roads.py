@@ -5,7 +5,7 @@ from app.common.sortedList import sortedList
 
 @app.route('/api/roads')
 def roads():
-    return sortedList(20, lambda item: item['Olycksvag'], True)
+    return sortedList(20, lambda item: map(lambda it: it.strip(), item['Olycksvag'].split(',')), True, True)
 
 @app.route('/api/roads2')
 def municipality():
