@@ -1,7 +1,22 @@
 from app.common.const import intensity_dict, weather_dict, locationType_dict, lightCondition_dict
 
+def convert_to_geojson_info(obj):
+    involved = convert_involvement(obj)
+    geojson = {
+        "locationType": locationType_dict[obj['Platstyp']],
+        "accidentType": accidentType_dict[obj['Olyckstyp']],
+        "region": obj['Lan'],
+        "municipality": obj['Kommun'],
+        "road": obj['Olycksvag'],
+        "roadCondition": obj['Vaglag'],
+        "weather": weather_dict[obj['Vaderlek']],
+        "lightCondition": lightCondition_dict[obj['Ljusforhallande']],
+        "involved": involved
+    }
 
-def convert_to_geojson(obj):
+    return geojson
+
+def convert_to_geojson_id(obj):
     involved = convert_involvement(obj)
     geojson = {
         "type": "Feature",
@@ -11,19 +26,9 @@ def convert_to_geojson(obj):
         },
         "properties": {
             "name": obj['Id'],
-            "locationType": locationType_dict[obj['Platstyp']],
-            "accidentType": obj['Olyckstyp'],
-            "year": obj['Ar'],
             "month": obj['Manad'],
-            "region": obj['Lan'],
-            "municipality": obj['Kommun'],
-            "intensity": intensity_dict[obj['Svarighetsgrad']],
-            "road": obj['Olycksvag'],
-            "roadCondition": obj['Vaglag'],
-            "weather": weather_dict[obj['Vaderlek']],
-            "lightCondition": lightCondition_dict[obj['Ljusforhallande']],
-            "involved": involved,
-            "involvedSize": len(involved)
+            "in": intensity_dict[obj['Svarighetsgrad']],
+            "inv": len(involved)
         }
     }
 
