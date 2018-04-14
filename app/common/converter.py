@@ -1,10 +1,10 @@
-from app.common.const import accidentType_dict, intensity_dict, weather_dict, locationType_dict, lightCondition_dict
+from app.common.const import intensity_dict, weather_dict, locationType_dict, lightCondition_dict
 
 def convert_to_geojson_info(obj):
     involved = convert_involvement(obj)
     geojson = {
         "locationType": locationType_dict[obj['Platstyp']],
-        "accidentType": accidentType_dict[obj['Olyckstyp']],
+        "accidentType": obj['Olyckstyp'],
         "region": obj['Lan'],
         "municipality": obj['Kommun'],
         "road": obj['Olycksvag'],
