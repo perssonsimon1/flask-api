@@ -17,7 +17,7 @@ def convert_to_geojson_info(obj):
         "weather": weather_dict[obj['Vaderlek']],
         "lightCondition": lightCondition_dict[obj['Ljusforhallande']],
         "involved": involved,
-        "involvedSize": len(involved)
+        "inv": len(involved)
     }
 
     return geojson
@@ -31,7 +31,8 @@ def convert_to_geojson_id(obj):
             "coordinates": [obj['Longitud'], obj['Latitud']]
         },
         "properties": {
-            "name": obj['Id']
+            "name": obj['Id'],
+            "inv": len(involved)
         }
     }
 
