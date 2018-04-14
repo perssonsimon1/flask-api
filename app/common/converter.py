@@ -1,5 +1,13 @@
+intensity = {
+    "Dödsolycka": 4,
+    "Svår olycka": 3,
+    "Lindrig olycka": 2,
+    "Okänd svårhetsgrad": 1,
+    "Ej personskadeolycka": 0
+}
 
-def convert(obj):
+
+def convert_to_geojson(obj):
     geojson = {
         "type": "Feature",
         "geometry": {
@@ -10,7 +18,7 @@ def convert(obj):
             "name": obj['Id'],
             "location_type": obj['Platstyp'],
             "accident_type": obj['Olyckstyp'],
-            "intensity": obj['Svarighetsgrad'],
+            "intensity": intensity[obj['Svarighetsgrad']],
             "road_condition": obj['Vaglag'],
             "weather": obj['Vaderlek'],
             "light_condition": obj['Ljusforhallande']
@@ -18,3 +26,4 @@ def convert(obj):
     }
 
     return geojson
+
