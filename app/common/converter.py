@@ -29,6 +29,21 @@ def convert_to_geojson(obj):
 
     return geojson
 
+def convert_to_geojson_id(obj):
+    involved = convert_involvement(obj)
+    geojson = {
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [obj['Longitud'], obj['Latitud']]
+        },
+        "properties": {
+            "name": obj['Id']
+        }
+    }
+
+    return geojson
+
 def convert_involvement(obj):
     prefix = "Trafikelement"
     items = list()
