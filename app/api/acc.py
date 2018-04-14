@@ -1,12 +1,12 @@
 from app import app
-from app.tsn.accidents import r
+from app.tsn.accidents import req
 from app.common import geojson
 import json
 
 @app.route('/api/acc')
 def publish():
     new_result = list()
-    result = r.json()['value']
+    result = req.json()['value']
     for item in result:
         new_result.append(geojson.convert(item))
     final = {
