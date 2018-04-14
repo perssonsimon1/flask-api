@@ -1,12 +1,8 @@
 from app import app
 from app.tsn import accidents
 import json
-from app.common.sortedList import sortedList
+from app.common.sorter import sorted_list
 
 @app.route('/api/roads')
-def roads():
-    return sortedList(20, lambda item: item['Olycksvag'], True)
-
-@app.route('/api/roads2')
-def municipality():
-    return sortedList(20, lambda item: item['Kommun'], True)
+def roads(year):
+    return json.dumps(sorted_list(20, lambda item: item['Olycksvag'], True), ensure_ascii=False)
