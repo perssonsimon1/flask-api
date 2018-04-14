@@ -4,7 +4,7 @@ def convert(obj):
         "type": "Feature",
         "geometry": {
             "type": "Point",
-            "coordinates": [obj['Latitud'], obj['Longitud']]
+            "coordinates": [obj['Longitud'], obj['Latitud']]
         },
         "properties": {
             "name": "Dinagat Islands",
