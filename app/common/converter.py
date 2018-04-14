@@ -8,6 +8,7 @@ intensity = {
 
 
 def convert_to_geojson(obj):
+    involved = convert_involvement(obj)
     geojson = {
         "type": "Feature",
         "geometry": {
@@ -16,13 +17,14 @@ def convert_to_geojson(obj):
         },
         "properties": {
             "name": obj['Id'],
-            "location_type": obj['Platstyp'],
-            "accident_type": obj['Olyckstyp'],
+            "locationType": obj['Platstyp'],
+            "accidentType": obj['Olyckstyp'],
             "intensity": intensity[obj['Svarighetsgrad']],
-            "road_condition": obj['Vaglag'],
+            "roadCondition": obj['Vaglag'],
             "weather": obj['Vaderlek'],
-            "light_condition": obj['Ljusforhallande'],
-            "involved": convert_involvement(obj)
+            "lightCondition": obj['Ljusforhallande'],
+            "involved": involved,
+            "involvedSize": len(involved)
         }
     }
 
