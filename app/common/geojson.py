@@ -1,5 +1,4 @@
 
-
 def convert(obj):
     geojson = {
         "type": "Feature",
