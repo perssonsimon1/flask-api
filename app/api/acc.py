@@ -13,5 +13,4 @@ def publish():
         "type": "FeatureCollection",
         "features": new_result
     }
-    result = json.dumps(final, ensure_ascii=False)
-    return result.encode('utf8')
+    return json.dumps(final, ensure_ascii=False)
