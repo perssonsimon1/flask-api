@@ -21,9 +21,23 @@ def convert_to_geojson(obj):
             "intensity": intensity[obj['Svarighetsgrad']],
             "road_condition": obj['Vaglag'],
             "weather": obj['Vaderlek'],
-            "light_condition": obj['Ljusforhallande']
+            "light_condition": obj['Ljusforhallande'],
+            "involved": convert_involvement(obj)
         }
     }
 
     return geojson
+
+def convert_involvement(obj):
+    prefix = "Trafikelement"
+    items = list()
+    for i in range(1, 22):
+        item = obj[prefix + str(i)]
+        if item:
+            items.append(item)
+        else:
+            return items
+    return items
+
+
 
