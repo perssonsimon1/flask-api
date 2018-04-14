@@ -6,7 +6,7 @@ import json
 
 @app.route('/api/accidents/info/<year>')
 def acc_info(year):
-    new_result = list()
+    new_result = dict()
 
     result = list()
 
@@ -22,7 +22,7 @@ def acc_info(year):
             has_data = False
 
     for item in result:
-        new_result.append(convert_to_geojson_info(item))
+        new_result[item["Id"]] = convert_to_geojson_info(item)
     
     return json.dumps(new_result, ensure_ascii=False)
 
