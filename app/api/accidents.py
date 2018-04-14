@@ -7,7 +7,20 @@ import json
 @app.route('/api/accidents/<year>')
 def acc(year):
     new_result = list()
-    result = accidents.get(year).json()['value']
+
+    result = list()
+
+    has_data = True
+    skip_counter = 0
+    while has_data:
+        res = accidents.get(year, skip_counter).json()['value']
+        if len(res) > 0:
+            for r in res:
+                result.append(r)
+            skip_counter += 10000
+        else:
+            has_data = False
+
     for item in result:
         new_result.append(convert_to_geojson(item))
     final = {
