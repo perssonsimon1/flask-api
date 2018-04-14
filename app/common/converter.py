@@ -11,7 +11,7 @@ def convert_to_geojson_info(obj):
         "month": obj['Manad'],
         "region": obj['Lan'],
         "municipality": obj['Kommun'],
-        "intensity": intensity_dict[obj['Svarighetsgrad']],
+        "in": intensity_dict[obj['Svarighetsgrad']],
         "road": obj['Olycksvag'],
         "roadCondition": obj['Vaglag'],
         "weather": weather_dict[obj['Vaderlek']],
@@ -32,6 +32,7 @@ def convert_to_geojson_id(obj):
         },
         "properties": {
             "name": obj['Id'],
+            "in": intensity_dict[obj['Svarighetsgrad']],
             "inv": len(involved)
         }
     }
