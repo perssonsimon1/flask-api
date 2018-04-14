@@ -15,39 +15,6 @@ weather_dict = {
     "Okänt": 5
 }
 
-accidentType_dict = {
-    "A (avsvängande motorfordon)": 0,
-    "C (cykel/moped-motorfordon)": 1,
-    "F (fotgängare-motorfordon)": 2,
-    "G0 (fotgängare singel)": 3,
-    "G1 (cykel singel)": 4,
-    "G2 (moped singel)": 5,
-    "G3 (fotgängare-cyklist)": 6,
-    "G4 (cykel-cykel)": 7,
-    "G5 (cykel-moped)": 8,
-    "G6 (moped-fotgängare)": 9,
-    "G7 (moped-moped)": 10,
-    "G8 (fotgängare-fotgängare)": 11,
-    "J (spårvagn)": 12,
-    "J (tåg)": 13,
-    "J (tåg/spårvagn övrigt)": 14,
-    "K (korsande-motorfordon)": 15,
-    "M (möte-motorfordon)": 16,
-    "O (omkörning-motorfordon)": 17,
-    "S (singel-motorfordon)": 18,
-    "U (upphinnande-motorfordon)": 19,
-    "V0 (övrigt)": 20,
-    "V1 (djur, häst/annat tamdjur)": 21,
-    "W1 (rådjur/hjort)": 22,
-    "W2 (älg)": 23,
-    "W3 (ren)": 24,
-    "V3 (traktor/snöskoter/terränghjuling/motorredskap)": 25,
-    "W4 (annat vilt)": 26,
-    "V5 (parkerat fordon)": 27,
-    "W5 (vildsvin)": 28,
-    "V6 (backning/vändning/u-sväng)": 29
-}
-
 locationType_dict = {
     "Annan": 0,
     "Cirkulationsplats": 1,

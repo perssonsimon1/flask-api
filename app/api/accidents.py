@@ -35,3 +35,4 @@ def acc(year):
 def municipality(year):
     return json.dumps(sorted_list(20, lambda item: item['Kommun'], True, year), ensure_ascii=False)
 
+

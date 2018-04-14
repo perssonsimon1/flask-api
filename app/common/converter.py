@@ -1,4 +1,4 @@
-from app.common.const import accidentType_dict, intensity_dict, weather_dict, locationType_dict, lightCondition_dict
+from app.common.const import intensity_dict, weather_dict, locationType_dict, lightCondition_dict
 
 
 def convert_to_geojson(obj):
@@ -12,7 +12,7 @@ def convert_to_geojson(obj):
         "properties": {
             "name": obj['Id'],
             "locationType": locationType_dict[obj['Platstyp']],
-            "accidentType": accidentType_dict[obj['Olyckstyp']],
+            "accidentType": obj['Olyckstyp'],
             "year": obj['Ar'],
             "month": obj['Manad'],
             "region": obj['Lan'],
