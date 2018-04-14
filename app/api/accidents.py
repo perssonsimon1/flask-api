@@ -1,11 +1,11 @@
 from app import app
 from app.tsn import accidents
-from app.common.converter import convert_to_geojson, convert_to_geojson_id
+from app.common.converter import convert_to_geojson_info, convert_to_geojson_id
 from app.common.sorter import sorted_list
 import json
 
-@app.route('/api/accidents/<year>')
-def acc(year):
+@app.route('/api/accidents/info/<year>')
+def acc_info(year):
     new_result = list()
 
     result = list()
@@ -22,15 +22,12 @@ def acc(year):
             has_data = False
 
     for item in result:
-        new_result.append(convert_to_geojson(item))
-    final = {
-        "type": "FeatureCollection",
-        "features": new_result
-    }
-    return json.dumps(final, ensure_ascii=False)
+        new_result.append(convert_to_geojson_info(item))
+    
+    return json.dumps(new_result, ensure_ascii=False)
 
-@app.route('/api/accidents/pos/<year>')
-def acc_pos(year):
+@app.route('/api/accidents/<year>')
+def acc(year):
     new_result = list()
 
     result = list()
