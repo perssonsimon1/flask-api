@@ -39,4 +39,6 @@ Debug Mode: True
 ...
 
 
+## Firebase
 
+The environment key should be located at `etc/firebase.json`
