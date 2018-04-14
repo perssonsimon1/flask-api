@@ -5,17 +5,13 @@ def convert_to_geojson_info(obj):
     geojson = {
         "locationType": locationType_dict[obj['Platstyp']],
         "accidentType": accidentType_dict[obj['Olyckstyp']],
-        "year": obj['Ar'],
-        "month": obj['Manad'],
         "region": obj['Lan'],
         "municipality": obj['Kommun'],
-        "in": intensity_dict[obj['Svarighetsgrad']],
         "road": obj['Olycksvag'],
         "roadCondition": obj['Vaglag'],
         "weather": weather_dict[obj['Vaderlek']],
         "lightCondition": lightCondition_dict[obj['Ljusforhallande']],
-        "involved": involved,
-        "inv": len(involved)
+        "involved": involved
     }
 
     return geojson
@@ -30,6 +26,7 @@ def convert_to_geojson_id(obj):
         },
         "properties": {
             "name": obj['Id'],
+            "month": obj['Manad'],
             "in": intensity_dict[obj['Svarighetsgrad']],
             "inv": len(involved)
         }
