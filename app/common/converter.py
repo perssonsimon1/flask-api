@@ -26,7 +26,7 @@ def convert_to_geojson_id(obj):
         },
         "properties": {
             "name": obj['Id'],
-            "accidentType": accidentType_dict[obj['Olyckstyp']],
+            "accidentType": obj['Olyckstyp'],
             "month": obj['Manad'],
             "in": intensity_dict[obj['Svarighetsgrad']],
             "inv": len(involved)
