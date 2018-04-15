@@ -21,9 +21,6 @@ This returns the number of accidents for every city in a given year, in this cas
 ### [roads](https://h4s-api.herokuapp.com/api/roads/2017)
 This returns the number of accidents for every road in a given year, in this case 2017.
 
-### [municipality](https://h4s-api.herokuapp.com/api/municipality/2017)
-This returns the number of accidents for every municipality in a given year, in this case 2017.
-
 ## Setup
 All of the dependencies can easily be installed with pip. Used dependencies are and should be specified in the requirements.txt file.
 
